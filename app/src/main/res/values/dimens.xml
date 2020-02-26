@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="pd6">6dp</dimen>
+    <dimen name="pd1">1dp</dimen>
+    <dimen name="pd48">48dp</dimen>
+    <dimen name="pd12">12dp</dimen>
+    <dimen name="ps14">14sp</dimen>
+    <dimen name="ps13">13sp</dimen>
+    <dimen name="pd180">180dp</dimen>
+
+    <dimen name="config_edit_text_size">13sp</dimen>
+</resources>

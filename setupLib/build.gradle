@@ -1,0 +1,63 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.wms:logger:1.0.1'
+}
+
+
+ext {
+    package_userOrg = '' //  组织名或者用户名 不填默认用户名  手动上传的时候jcenter目录：/com/proton/temp/tempConnector/1.0.6-alpha01/
+    package_repo = 'coreMaven' // bintray上的仓库名，就是我们在第二步中创建的仓库名字，如果package_userOrg设置的为组织名，那么这个仓库名得属于组织的
+    package_type = 'aar'  // 输出类型
+    package_group = 'com.yxf.setup' // JCenter的GroupId
+    package_artifact = 'setupNet' // JCenter的ArtifactId
+    package_version = '1.0.1'  // JCenter的VersionId
+    package_description = 'A tools for setupNet'
+
+    siteUrl = 'https://github.com/yuxiongfeng92/TempConnector'
+    gitUrl = 'https://github.com/yuxiongfeng92/TempConnector.git'
+
+    //开发者信息
+    developerId = 'yu'
+    developerName = 'xiongfeng'
+    developerEmail = 'yuxiongfeng7@gmail.com'
+
+    //开源协议
+    licenseName = 'The Apache Software License, Version 2.0'
+
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = 'Apache-2.0'
+}
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+apply from: './bintray.gradle'
+
